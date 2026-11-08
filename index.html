@@ -1,32 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome dla ikonek -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header>
-    <h1>Hi, I'm Ami! 🧠</h1>
-    <p>I'm learning how to code, building my first web projects, and exploring tech.</p>
-  </header>
 
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>Welcome to my personal portfolio website created as my first project on GitHub! I love clean code and aesthetic designs.</p>
-    </section>
+    <!-- Przycisk przełączania motywu (Dark/Light) -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fa-solid fa-moon" id="themeIcon"></i>
+    </button>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <ul>
-        <li>HTML5 & CSS3</li>
-        <li>JavaScript (Basics)</li>
-        <li>PHP & MySQL</li>
-        <li>Git & GitHub</li>
-      </ul>
-    </section>
-  </main>
+    <div class="container">
+        <!-- Sekcja powitalna -->
+        <header class="glass-card hero">
+            <h1>Hi, I'm Ami! <span class="wave">🧠</span></h1>
+            <p>I'm learning how to code, building my first web projects, and exploring tech.</p>
+        </header>
+
+        <!-- Sekcja O mnie -->
+        <section class="glass-card about">
+            <h2>About Me</h2>
+            <hr class="divider">
+            <p>Welcome to my personal portfolio website created as my first project on GitHub! I love clean code and aesthetic designs.</p>
+        </section>
+
+        <!-- Sekcja Umiejętności -->
+        <section class="glass-card skills">
+            <h2>Skills</h2>
+            <hr class="divider">
+            <div class="skills-grid">
+                <div class="skill-badge"><i class="fa-brands fa-html5"></i> HTML5 & CSS3</div>
+                <div class="skill-badge"><i class="fa-solid fa-code"></i> JavaScript (Basics)</div>
+                <div class="skill-badge"><i class="fa-solid fa-database"></i> PHP & MySQL</div>
+                <div class="skill-badge"><i class="fa-brands fa-git-alt"></i> Git & GitHub</div>
+            </div>
+        </section>
+
+        <!-- Sekcja Projekty -->
+        <section class="glass-card projects">
+            <h2>Projects</h2>
+            <hr class="divider">
+            <div class="projects-grid">
+                <div class="project-item">
+                    <h3>My Portfolio</h3>
+                    <p>My first aesthetic portfolio featuring a glassmorphism design, deployed on GitHub Pages.</p>
+                    <div class="project-links">
+                        <a href="https://amiyalis.github.io/my-portoflio/" target="_blank" class="btn"><i class="fa-solid fa-globe"></i> Live</a>
+                        <a href="https://github.com/amiyalis/my-portoflio" target="_blank" class="btn"><i class="fa-brands fa-github"></i> Code</a>
+                    </div>
+                </div>
+                <!-- Miejsce na kolejny projekt -->
+                <div class="project-item placeholder">
+                    <h3>Second Project</h3>
+                    <p>Another exciting application or website will appear here soon!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekcja Kontakt / Social Media -->
+        <section class="glass-card contact">
+            <h2>Let's Connect</h2>
+            <hr class="divider">
+            <div class="social-links">
+                <a href="https://github.com/amiyalis" target="_blank" class="social-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://discord.gg/lunaris-uwu" target="_blank" class="social-btn" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Skrypt do obsługi przełączania motywu -->
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const htmlElement = document.documentElement;
+
+        // Sprawdź zapisany motyw w pamięci przeglądarki
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            htmlElement.setAttribute('data-theme', 'dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (htmlElement.getAttribute('data-theme') === 'dark') {
+                htmlElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                htmlElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+    </script>
 </body>
 </html>
