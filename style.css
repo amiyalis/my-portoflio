@@ -1,0 +1,66 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: linear-gradient(180deg, #fbe3ef 0%, #f7cade 40%, #f6b5d7 75%, #f4a2cd 100%);
+  background-attachment: fixed;
+  color: #4a2838;
+}
+
+header, section {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 8px 20px rgba(220, 100, 150, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  animation: fadeInUp 0.8s ease-out forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+header:hover, section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(220, 100, 150, 0.2);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+section#about {
+  animation-delay: 0.15s;
+}
+
+section#skills {
+  animation-delay: 0.3s;
+}
+
+h1 {
+  color: #d84b85;
+  margin-top: 0;
+}
+
+h2 {
+  color: #e25b93;
+  border-bottom: 2px dashed #f6b5d7;
+  padding-bottom: 8px;
+}
+
+ul {
+  list-style-type: square;
+}
+
+li::marker {
+  color: #e25b93;
+}
